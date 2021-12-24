@@ -6,9 +6,7 @@ import { ProgressBar } from "./ProgressBar";
 import { FilterContext } from "../../context/FilterContext";
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import ItemSelected from "./ItemSelected";
 import Filters from "./Filters";
-import {Oxxo} from './Oxxo'
 
 import "./picker.css";
 import es from "date-fns/locale/es";
@@ -19,12 +17,6 @@ export const AuctionBody = () => {
   const [auction, setAuction] = useState(null);
   const { currentUser, globalMsg } = useContext(AuthContext);
   const { DB } = useContext(FilterContext);
-
-  const [itemState, setItemState] = useState();
-
-  const handleState = (a) => {
-    setItemState(a);
-  };
 
   let admin = currentUser ? currentUser.email : false;
 
@@ -100,7 +92,7 @@ export const AuctionBody = () => {
 
     let sss = arr
       .filter((el) => el !== undefined)
-      .map((el) => el.email === mail + "@gmail.com" && el);
+      .map((el) => el.tienda === mail && el);
 
     setN(sss);
   };
@@ -109,7 +101,7 @@ export const AuctionBody = () => {
 
   /* ===================================== Radio Filter ==================== */
   const [radio, setRadio] = useState();
-
+  console.log(radio)
   const [arrRadio, setArrRadio] = useState([]);
 
   const handlerRadio = (v) => {
@@ -118,11 +110,11 @@ export const AuctionBody = () => {
     const toRadio = n?.filter((el) => el !== false);
     let r = toRadio;
 
-    if (radio === "completados") {
-      r = toRadio.filter((el) => el.completed !== true);
+    if (radio === "uno") {
+      r = toRadio.filter((el) => el.distrito !== 'uno');
       setArrRadio(r);
     } else {
-      r = toRadio.filter((el) => el.completed !== false);
+      r = toRadio.filter((el) => el.distrito !== 'dos');
       setArrRadio(r);
     }
   };
@@ -320,7 +312,7 @@ export const AuctionBody = () => {
               <span className="bg-danger p-1">
                 {n?.filter((el) => el.completed === false).length}
               </span>{" "}
-              Viajes Sin Completar de KL {mail}
+              Viajes de {mail}
             </span>
           </div>
           <div className="col-1"></div>
@@ -358,9 +350,9 @@ export const AuctionBody = () => {
             </form>
           </div>
           <div className="col-1"></div>
-          <div className={arr?.length > 0 ? "col-md-3 mt-2" : "d-none"}>
+          <div className={n?.length > 0 ? "col-md-3 mt-2" : "d-none"}>
             <div
-              className={n?.length > 0 ? "w-75 fr" : "d-none"}
+              className={arr?.length > 0 ? "w-75 fr" : "d-none"}
               onChange={(e) => handlerRadio(e.target.value)}
             >
               <input
@@ -374,20 +366,20 @@ export const AuctionBody = () => {
               <label className="btn text-white btn-outline-dark my-2">
                 <input
                   type="radio"
-                  value="completados"
+                  value="uno"
                   name="drone"
                   className="d-none"
                 />
-                Completados
+                Distrito Uno
               </label>
               <label className="btn text-white btn-outline-dark">
                 <input
                   type="radio"
-                  value="nocompletados"
+                  value="dos"
                   name="drone"
                   className="d-none"
                 />
-                Incompletos
+                Distrito Dos
               </label>
             </div>
           </div>
@@ -537,7 +529,7 @@ export const AuctionBody = () => {
       )}
 
       {DB && (
-        <div className=" ">
+        <div className="pt-3">
           {currentUser && (
             <div className={arr.length > 0 ? "d-none" : "d-none"}>
               <Filters />
@@ -550,17 +542,21 @@ export const AuctionBody = () => {
                 <AuctionCard
                   item={doc}
                   key={doc.id}
-                  handleState={handleState}
                 />
               );
             })}
         </div>
       )}
 
-      <h2 className="mt-2 px-3 mx-1">Pedidos de oxxo</h2>
+  {/*     <h2 className="mt-2 px-3 mx-1">Pedidos de oxxo</h2>
 
-     
-            {/*   <Oxxo /> */}
+      {arr4
+            .filter((el) => el !== undefined)
+            .map((doc) => {
+              return (    
+            <Oxxo item={doc}/> 
+            );
+          })}    */}  
 
 
     </div>

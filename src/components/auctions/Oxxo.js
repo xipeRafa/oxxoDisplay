@@ -1,31 +1,21 @@
 import React from "react";
-import { useFirestore } from "../../hooks/useFirestore";
 
-export const Oxxo = () => {
+export const Oxxo = ({item}) => {
 
-  const { docs } = useFirestore("oxxoLider");
+  let seconds = item.duration
 
-  let seconds
+  const hora = new Date(seconds).toLocaleTimeString("es-CL")
 
-  docs.map((el) => {
-    seconds = el.duration;
-  });
-
-
-const hora = new Date(seconds).toLocaleTimeString("es-CL")
-
-let date = new Date(seconds).toLocaleDateString("es-CL", {
+  let date = new Date(seconds).toLocaleDateString("es-CL", {
       weekday: "short", // narrow, short
       year: "numeric", // 2-digit
       month: "short", // numeric, 2-digit, narrow, long
       day: "numeric", // 2-digit
-}); 
+  }); 
 
   return (
-    <div  className="col border mb-5 p-3" 
-          style={{height:'700px', overflow:'hidden', overflowY: 'scroll'}}>
+    <div  className="col border mb-1 p-1" >
 
-      {docs.map((item) => (
       <div className="card shadow-sm mb-2" key={item.id}>
        
         <div className="card-body px-4 pb-2 ">
@@ -60,7 +50,6 @@ let date = new Date(seconds).toLocaleDateString("es-CL", {
         </div>
       
       </div>
-      ))}
     </div>
   );
 };

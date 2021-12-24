@@ -1,15 +1,13 @@
 import React from "react";
-import { useFirestore } from "../../hooks/useFirestore";
 
 export const AuctionCard = ({item}) => {
 console.log(item)
 
+let seconds = item.duration
 
+const hora = new Date(seconds).toLocaleTimeString("es-CL")
 
-
-const hora = new Date(item.duration).toLocaleTimeString("es-CL")
-
-let date = new Date(item.duration).toLocaleDateString("es-CL", {
+let date = new Date(seconds).toLocaleDateString("es-CL", {
       weekday: "short", // narrow, short
       year: "numeric", // 2-digit
       month: "short", // numeric, 2-digit, narrow, long
@@ -17,8 +15,7 @@ let date = new Date(item.duration).toLocaleDateString("es-CL", {
 });  
 
   return (
-    <div  className="col border mb-5 p-3" 
-          style={{height:'700px', overflow:'hidden', overflowY: 'scroll'}}>
+    <div  className="col mb-1 p-1">
 
       
       <div className="card shadow-sm mb-2" key={item.id}>
@@ -27,18 +24,22 @@ let date = new Date(item.duration).toLocaleDateString("es-CL", {
 
           <div className="border row border-secondary">
             <span className="bg-secondary p-1 col-md-3">
-              <div className="text-white px-2"> Tienda {item.tienda} </div>
+              <div className="text-white px-2">{item.distrito}, {item.tienda} </div>
             </span>
          
-            <span className="p-1 col-md-3">
+            <span className="p-1 col-md-2">
               <span className="text-secondary px-2">Horario </span> {item.hora}
             </span> 
 
-            <span className="p-1 col-md-3">
+            <span className="p-1 col-md-2">
+              <span className="text-secondary px-2">Origen </span> {item.origen}
+            </span> 
+            
+            <span className="p-1 col-md-2">
               <span className="text-secondary px-2">Destino </span> {item.destino}
             </span> 
 
-            <span className="p-1 col-md-3 ">
+            <span className="p-1 col-md-3">
               <span className="px-2">{date}, {hora.slice(0, -3)}</span> 
             </span>
 
