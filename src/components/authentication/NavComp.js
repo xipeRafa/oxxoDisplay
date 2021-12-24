@@ -8,19 +8,19 @@ export const NavComp = () => {
   const { currentUser, logout } = useContext(AuthContext);
 
   return (
-    <nav className="container-fluid navbar navbar-light border">
+    <nav className="container-fluid navbar navbar-light bg-secondary">
       <div className="container-fluid">
         <div className="navbar-brand">
-          <img src={logoImg} alt="logo" height="50" /> ADMIN
+          OXXO DISPLAY
         </div>
         <div className="d-flex">
           <div className="col">
             {currentUser ? (
               <>
-                <div className="btn btn-success mx-2 disabled">
+                <div className="btn mx-2 disabled">
                   {currentUser.email}
                 </div>
-                <div onClick={() => logout()} className="btn btn-outline-secondary mx-2">
+                <div onClick={() => logout()} className="text-white btn mx-2">
                   SALIR
                 </div>
               </>

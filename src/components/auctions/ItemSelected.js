@@ -10,7 +10,7 @@ const ItemSelected = ({
       "https://image.shutterstock.com/image-photo/indifferent-puzzled-female-shruggs-shoulders-600w-1164353026.jpg"
   }
 }) => {
-  const { docs } = useFirestore("auctions");
+  const { docs } = useFirestore("oxxoLider");
   const { noteContext } = useContext(AuthContext);
 
   let title = itemState.title;

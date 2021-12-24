@@ -3,7 +3,7 @@ import { useFirestore } from '../hooks/useFirestore';
 
 export const FilterContext = createContext();
 export const FilterProvider = ({ children }) => {
-  const { docs } = useFirestore('auctions');
+  const { docs } = useFirestore('oxxoLider');
 
   let db = [...docs]
   const[DB, setDB]=useState(db)

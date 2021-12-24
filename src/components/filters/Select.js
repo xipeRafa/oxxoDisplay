@@ -3,7 +3,7 @@ import { FilterContext } from '../../context/FilterContext';
 import { useFirestore } from '../../hooks/useFirestore';
 
 const Select = () => {
-      const { docs } = useFirestore('auctions');
+      const { docs } = useFirestore('oxxoLider');
 
       let db = [...docs]
 

@@ -6,7 +6,7 @@ import { FilterContext } from '../../context/FilterContext';
 const Categories = () => {
       const { handleDB } = useContext(FilterContext);
 
-      const { docs } = useFirestore('auctions');
+      const { docs } = useFirestore('oxxoLider');
 
       let db = [...docs]
       

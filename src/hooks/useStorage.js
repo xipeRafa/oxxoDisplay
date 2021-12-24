@@ -7,7 +7,7 @@ const useStorage = (data) => {
 
   useState(() => {
     const storageRef = storageApp.ref(data.itemImage.name);
-    const collectionRef = firestoreApp.collection('auctions');
+    const collectionRef = firestoreApp.collection('oxxoLider');
 
     storageRef.put(data.itemImage).on(
       'state_changed',

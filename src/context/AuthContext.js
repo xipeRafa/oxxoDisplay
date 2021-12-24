@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
 
   const bidAuction = (auctionId) => {
 
-    const db = firestoreApp.collection('auctions');
+    const db = firestoreApp.collection('oxxoLider');
 
     return db.doc(auctionId).update({
       acuerdo:true
@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
 
   const noteContext = (auctionId, note) => {
 
-    const db = firestoreApp.collection('auctions');
+    const db = firestoreApp.collection('oxxoLider');
 
     return db.doc(auctionId).update({
       note:note
@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const endAuction = (auctionId) => {
-    const db = firestoreApp.collection('auctions');
+    const db = firestoreApp.collection('oxxoLider');
 
     return db.doc(auctionId).delete();
   };

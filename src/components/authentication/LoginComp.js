@@ -28,7 +28,7 @@ export const LoginComp = () => {
 
   return (
     <>
-      <div onClick={openForm} className="btn btn-outline-secondary mx-2">
+      <div onClick={openForm} className="btn text-white mx-2">
         Entrar
       </div>
       <Modal centered show={showForm} onHide={closeForm}>

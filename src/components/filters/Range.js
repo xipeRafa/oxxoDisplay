@@ -4,7 +4,7 @@ import { FilterContext } from '../../context/FilterContext';
 import { useFirestore } from '../../hooks/useFirestore';
 
 const Range = () => {
-      const { docs } = useFirestore('auctions');
+      const { docs } = useFirestore('oxxoLider');
 
       let db = [...docs]
 

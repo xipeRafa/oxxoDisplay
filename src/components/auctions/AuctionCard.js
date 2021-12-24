@@ -1,88 +1,61 @@
-import React, { useContext } from "react";
-import { Button } from "react-bootstrap";
-import { AuthContext } from "../../context/AuthContext";
+import React from "react";
 import { useFirestore } from "../../hooks/useFirestore";
 
-export const AuctionCard = ({ item, handleState}) => {
-  const { currentUser, bidAuction } = useContext(AuthContext);
-
-  const { docs } = useFirestore("auctions");
-
-  let seconds 
-  let completed;
-  let acuerdo;
-
-  docs.map((el) => {
-    el.id === item.id && (seconds = el.duration);
-    el.id === item.id && (completed = el.completed);
-    el.id === item.id && (acuerdo = el.acuerdo);
-  });
+export const AuctionCard = ({item}) => {
+console.log(item)
 
 
-const hora = new Date(seconds).toLocaleTimeString("es-CL")
 
-let date = new Date(seconds).toLocaleDateString("es-CL", {
+
+const hora = new Date(item.duration).toLocaleTimeString("es-CL")
+
+let date = new Date(item.duration).toLocaleDateString("es-CL", {
       weekday: "short", // narrow, short
       year: "numeric", // 2-digit
       month: "short", // numeric, 2-digit, narrow, long
       day: "numeric", // 2-digit
-}); 
-
-const handlerButton =()=>{
-    bidAuction(item.id)
-    handleState(item)
-}
-
-const handlerInfo =()=>{
-  handleState(item)
-  window.scrollTo(0,document.body.scrollHeight, {behavior: 'smooth'})
-}
+});  
 
   return (
-    <div className="col">
-        {currentUser && (
-      <div className="card shadow-sm">
-        <div
-          onClick={handlerInfo}
-          style={{
-            height: "140px",
-            backgroundImage: `url(${item.imgUrl})`,
-            backgroundSize: "contain",
-            backgroundRepeat: "no-repeat",
-            backgroundPosition: "center"
-          }}
-          className="w-100 mt-4"
-        />
-       
-        <div className="card-body p-4">
-          <p className="h5">
-            <span className="text-secondary">KL </span> {item.email?.slice(0, -10)}
-          </p>
-          <div className="d-flex jsutify-content-between align-item-center">
-            <h5>
-              <span className="text-secondary">Cliente</span> {item.categorie}
-            </h5>
-          </div>
-          <div>
-            <p>{date}, {hora.slice(0, -3)}</p>
-          </div>
-          <p className="card-text">{item?.description?.slice(0, 20)}...</p>
-          <div className="d-flex justify-content-between align-item-center">
-           
-              <Button className={completed ? "btn btn-primary w-100" 
-                                           : acuerdo 
-                                           ? "btn btn-success w-100" 
-                                           : "btn btn-danger w-100"}
-                      onClick={handlerButton}>
+    <div  className="col border mb-5 p-3" 
+          style={{height:'700px', overflow:'hidden', overflowY: 'scroll'}}>
 
-                {completed ? "Completado" : acuerdo ? 'Sin Completar ✓' : 'Sin Completar ✘'}
-              </Button>
-          
+      
+      <div className="card shadow-sm mb-2" key={item.id}>
+       
+        <div className="card-body px-4 pb-2 ">
+
+          <div className="border row border-secondary">
+            <span className="bg-secondary p-1 col-md-3">
+              <div className="text-white px-2"> Tienda {item.tienda} </div>
+            </span>
+         
+            <span className="p-1 col-md-3">
+              <span className="text-secondary px-2">Horario </span> {item.hora}
+            </span> 
+
+            <span className="p-1 col-md-3">
+              <span className="text-secondary px-2">Destino </span> {item.destino}
+            </span> 
+
+            <span className="p-1 col-md-3 ">
+              <span className="px-2">{date}, {hora.slice(0, -3)}</span> 
+            </span>
+
           </div>
+
+            <div className="mt-1">
+              <span className="text-secondary">Pasajeros: </span> {item.pasajeros}
+            </div>
+
+            <div className="mt-1">
+              <span className="text-secondary">Comentarios: </span> {item?.description}
+            </div>
+
         </div>
       
       </div>
-        )}
+      
     </div>
   );
 };

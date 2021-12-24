@@ -310,7 +310,7 @@ export const AuctionBody = () => {
         {globalMsg && <Alert variant="danger">{globalMsg}</Alert>}
       </div>
       {admin && (
-        <div className="row bg-secondary pt-4 pb-3">
+        <div className="row bg-secondary pb-3">
           <div className="text-white bg-primary mb-3 p-1 blue">
             <span style={{ marginLeft: "20px" }}>
               <span className="p-1">{l}</span> Viajes el Dia: {today2} 
@@ -325,7 +325,7 @@ export const AuctionBody = () => {
           </div>
           <div className="col-1"></div>
           <div
-            className={n?.length > 0 ? "d-none" : "col-sm-3 text-center mb-4 me-5"}
+            className={n?.length > 0 ? "d-none" : "col-md-3 text-center mb-4 me-5"}
           >
             <DatePicker
               selected={fecha}
@@ -353,7 +353,7 @@ export const AuctionBody = () => {
                   arr.length > 0 ? "w-100 form-control mt-2" : "d-none"
                 }
                 style={{ width: "0" }}
-                placeholder="Buscar por KL"
+                placeholder="Buscar por Tienda"
               />
             </form>
           </div>
@@ -432,7 +432,7 @@ export const AuctionBody = () => {
 
       {/* =================================================================================================================================================================================================================================== */}
       {currentUser && (
-<div>
+<div className="d-none">
       <div className="d-flex flex-row justify-content-evenly p-4">
         <input
           type="button"
@@ -537,7 +537,7 @@ export const AuctionBody = () => {
       )}
 
       {DB && (
-        <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 py-4 px-5 g-3 border mt-1 ">
+        <div className=" ">
           {currentUser && (
             <div className={arr.length > 0 ? "d-none" : "d-none"}>
               <Filters />
@@ -560,10 +560,9 @@ export const AuctionBody = () => {
       <h2 className="mt-2 px-3 mx-1">Pedidos de oxxo</h2>
 
      
-              <Oxxo />
+            {/*   <Oxxo /> */}
 
 
-      <ItemSelected itemState={itemState} />
     </div>
   );
 };
