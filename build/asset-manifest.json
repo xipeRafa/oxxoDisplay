@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/taxistas/static/css/main.a53ae5ad.chunk.css",
+    "main.js": "/taxistas/static/js/main.b29bea25.chunk.js",
+    "main.js.map": "/taxistas/static/js/main.b29bea25.chunk.js.map",
+    "runtime-main.js": "/taxistas/static/js/runtime-main.29112eea.js",
+    "runtime-main.js.map": "/taxistas/static/js/runtime-main.29112eea.js.map",
+    "static/css/2.f97446a8.chunk.css": "/taxistas/static/css/2.f97446a8.chunk.css",
+    "static/js/2.855e6a84.chunk.js": "/taxistas/static/js/2.855e6a84.chunk.js",
+    "static/js/2.855e6a84.chunk.js.map": "/taxistas/static/js/2.855e6a84.chunk.js.map",
+    "index.html": "/taxistas/index.html",
+    "static/css/2.f97446a8.chunk.css.map": "/taxistas/static/css/2.f97446a8.chunk.css.map",
+    "static/css/main.a53ae5ad.chunk.css.map": "/taxistas/static/css/main.a53ae5ad.chunk.css.map",
+    "static/js/2.855e6a84.chunk.js.LICENSE.txt": "/taxistas/static/js/2.855e6a84.chunk.js.LICENSE.txt",
+    "static/media/canal10.24a72002.png": "/taxistas/static/media/canal10.24a72002.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.29112eea.js",
+    "static/css/2.f97446a8.chunk.css",
+    "static/js/2.855e6a84.chunk.js",
+    "static/css/main.a53ae5ad.chunk.css",
+    "static/js/main.b29bea25.chunk.js"
+  ]
+}
