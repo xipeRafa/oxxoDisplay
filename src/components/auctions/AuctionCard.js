@@ -1,7 +1,6 @@
 import React from "react";
 
 export const AuctionCard = ({item}) => {
-console.log(item)
 
 let seconds = item.duration
 

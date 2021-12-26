@@ -11,7 +11,7 @@ export const NavComp = () => {
     <nav className="container-fluid navbar navbar-light bg-secondary">
       <div className="container-fluid">
         <div className="navbar-brand">
-          OXXO DISPLAY
+          OXXO DISPLAY TC-10
         </div>
         <div className="d-flex">
           <div className="col">
@@ -21,7 +21,7 @@ export const NavComp = () => {
                   {currentUser.email}
                 </div>
                 <div onClick={() => logout()} className="text-white btn mx-2">
-                  SALIR
+                  Salir
                 </div>
               </>
             ) : (
