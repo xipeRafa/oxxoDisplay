@@ -10,8 +10,8 @@ export const NavComp = () => {
   return (
     <nav className="container-fluid navbar navbar-light bg-secondary">
       <div className="container-fluid">
-        <div className="navbar-brand">
-          OXXO DISPLAY TC-10
+        <div className="navbar-brand text-white">
+        <img src={logoImg} alt="logo" height="50" />   DISPLAY TC-10
         </div>
         <div className="d-flex">
           <div className="col">
