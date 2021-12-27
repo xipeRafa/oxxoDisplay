@@ -46,6 +46,8 @@ export const AuctionBody = () => {
 
   let l = arr.filter((el) => el).length;
 
+  let total = arr.reduce((acc, curr) => acc + curr?.precio, 0)
+
   const onDate = (fecha) => {
     setFecha(fecha);
 
@@ -76,7 +78,7 @@ export const AuctionBody = () => {
   /* ===================================== filter Mail ==================== */
 
   const [mail, setMail] = useState();
-console.log(mail)
+
 
   const handleMail = (e) => {
     setMail(e.target.value);
@@ -84,7 +86,7 @@ console.log(mail)
   };
 
   const [arr2, setArr2] = useState([]);
-
+console.log('arr2', arr2)
   const [n, setN] = useState();
 console.log('n:', n)
 
@@ -293,7 +295,6 @@ console.log('n:', n)
     arr4 = arr3;
   }
 
-
   return (
     <div className="container-fluid">
       {auction && <ProgressBar auction={auction} setAuction={setAuction} />}
@@ -306,16 +307,17 @@ console.log('n:', n)
       </div>
       {admin && (
         <div className="row bg-secondary pb-3">
-          <div className="text-white bg-primary mb-3 p-1 blue">
+          <div className={arr.length> 0 ? "text-white bg-primary mb-3 p-1 blue" : "d-none"} >
             <span style={{ marginLeft: "20px" }}>
-              <span className="p-1">{l}</span> Viajes el Dia: {today2} 
+              <span className="p-1">{l}</span> Viajes {today2}  {' '}
+              <span className="p-1 bg-dark" > Total: ${total}</span>
             </span>
 
             <span className={n?.length > 0 ? "mx-5" : "d-none"} >
-              {/* <span className="bg-danger p-1">
-                {n?.filter((el) => el.completed === false).length}
-              </span> */}{" "}
-              Viajes Para Tienda: {mail}
+              {mail} {' '}
+              <span className="bg-dark p-1 " >  
+              Total:{' '}{''}${n?.filter((el) => el !== false).reduce((acc, curr) => acc + curr?.precio, 0)}
+              </span>
             </span>
           </div>
           <div className="col-1"></div>

@@ -23,7 +23,7 @@ let date = new Date(seconds).toLocaleDateString("es-CL", {
 
           <div className="border row border-secondary">
             <span className="bg-secondary p-1 col-md-3">
-              <div className="text-white px-2"> {item.tienda} </div>
+              <div className="text-white px-2"> {item.tienda} ${item.precio}</div>
             </span>
          
             <span className="p-1 col-md-2">
