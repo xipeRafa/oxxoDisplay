@@ -3,7 +3,8 @@ import { Document, Page, Text, View} from "@react-pdf/renderer";
 
 const DocuPDF = ({ poema }) => {
 
-  const lorem = "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
+      let tienda = poema.map(el => el?.tienda)
+
   return (
     <Document>
       <Page
@@ -34,7 +35,11 @@ const DocuPDF = ({ poema }) => {
 
 
           <Text style={{ color: "#3388af", fontSize: "42px" }}>
-            {poema.map(el => el.tienda)}
+                
+            {
+                  tienda
+            }
+
           </Text>
 
 
