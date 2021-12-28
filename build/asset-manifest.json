@@ -1,24 +1,24 @@
 {
   "files": {
     "main.css": "/oxxoDisplay/static/css/main.a53ae5ad.chunk.css",
-    "main.js": "/oxxoDisplay/static/js/main.9035590c.chunk.js",
-    "main.js.map": "/oxxoDisplay/static/js/main.9035590c.chunk.js.map",
+    "main.js": "/oxxoDisplay/static/js/main.c38808dc.chunk.js",
+    "main.js.map": "/oxxoDisplay/static/js/main.c38808dc.chunk.js.map",
     "runtime-main.js": "/oxxoDisplay/static/js/runtime-main.b323b13e.js",
     "runtime-main.js.map": "/oxxoDisplay/static/js/runtime-main.b323b13e.js.map",
     "static/css/2.f97446a8.chunk.css": "/oxxoDisplay/static/css/2.f97446a8.chunk.css",
-    "static/js/2.3bec2d0c.chunk.js": "/oxxoDisplay/static/js/2.3bec2d0c.chunk.js",
-    "static/js/2.3bec2d0c.chunk.js.map": "/oxxoDisplay/static/js/2.3bec2d0c.chunk.js.map",
+    "static/js/2.939be4e3.chunk.js": "/oxxoDisplay/static/js/2.939be4e3.chunk.js",
+    "static/js/2.939be4e3.chunk.js.map": "/oxxoDisplay/static/js/2.939be4e3.chunk.js.map",
     "index.html": "/oxxoDisplay/index.html",
     "static/css/2.f97446a8.chunk.css.map": "/oxxoDisplay/static/css/2.f97446a8.chunk.css.map",
     "static/css/main.a53ae5ad.chunk.css.map": "/oxxoDisplay/static/css/main.a53ae5ad.chunk.css.map",
-    "static/js/2.3bec2d0c.chunk.js.LICENSE.txt": "/oxxoDisplay/static/js/2.3bec2d0c.chunk.js.LICENSE.txt",
+    "static/js/2.939be4e3.chunk.js.LICENSE.txt": "/oxxoDisplay/static/js/2.939be4e3.chunk.js.LICENSE.txt",
     "static/media/canal10.5770e26e.png": "/oxxoDisplay/static/media/canal10.5770e26e.png"
   },
   "entrypoints": [
     "static/js/runtime-main.b323b13e.js",
     "static/css/2.f97446a8.chunk.css",
-    "static/js/2.3bec2d0c.chunk.js",
+    "static/js/2.939be4e3.chunk.js",
     "static/css/main.a53ae5ad.chunk.css",
-    "static/js/main.9035590c.chunk.js"
+    "static/js/main.c38808dc.chunk.js"
   ]
 }
