@@ -7,6 +7,8 @@ import { FilterContext } from "../../context/FilterContext";
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Filters from "./Filters";
+import { PDFDownloadLink } from "@react-pdf/renderer";
+import DocuPDF from "./DocuPDF";
 
 import "./picker.css";
 import es from "date-fns/locale/es";
@@ -307,11 +309,18 @@ console.log('n:', n)
       </div>
       {admin && (
         <div className="row bg-secondary pb-3">
-          <div className={arr.length> 0 ? "text-white bg-primary mb-3 p-1 blue" : "d-none"} >
+          <div className={arr.length> 0 ? "text-white bg-primary mb-3 p-2 blue" : "d-none"} >
             <span style={{ marginLeft: "20px" }}>
               <span className="p-1">{l}</span> Viajes {today2}  {' '}
-              <span className="p-1 bg-dark" > Total: ${total}</span>
+              <span className="p-1 bg-dark mx-2" > Total: ${total}</span>
+              <PDFDownloadLink
+                document={<DocuPDF poema={arr} />}
+                fileName="week.pdf"
+              >
+              <button style={{border:'none', backgroundColor:'transparent',color:'darkred'}}>PDF</button>
+              </PDFDownloadLink>
             </span>
+            {console.log(arr)}
 
             <span className={n?.length > 0 ? "mx-5" : "d-none"} >
               {mail} {' '}
@@ -858,6 +867,9 @@ console.log('n:', n)
       </div>
         </div>
       )}
+
+      
+
 
       {DB && (
         <div className="pt-3">
