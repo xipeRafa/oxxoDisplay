@@ -315,7 +315,7 @@ console.log('n:', n)
               Total: ${arr?.filter((el) => el !== undefined).reduce((acc, curr) => acc + curr?.precio, 0)}
               </span>
               <PDFDownloadLink
-                document={<DocuPDF poema={arr} />}
+                document={<DocuPDF poema={arr.filter((el) => el !== undefined)} />}
                 fileName="week.pdf"
               >
               <button style={{border:'none', backgroundColor:'transparent',color:'darkred'}}>PDF</button>
