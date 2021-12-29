@@ -48,7 +48,6 @@ export const AuctionBody = () => {
 
   let l = arr.filter((el) => el).length;
 
-  let total = arr.reduce((acc, curr) => acc + curr?.precio, 0)
 
   const onDate = (fecha) => {
     setFecha(fecha);
@@ -312,7 +311,9 @@ console.log('n:', n)
           <div className={arr.length> 0 ? "text-white bg-primary mb-3 p-2 blue" : "d-none"} >
             <span style={{ marginLeft: "20px" }}>
               <span className="p-1">{l}</span> Viajes {today2}  {' '}
-              <span className="p-1 bg-dark mx-2" > Total: ${total}</span>
+              <span className="p-1 bg-dark mx-2" > 
+              Total: ${arr?.filter((el) => el !== undefined).reduce((acc, curr) => acc + curr?.precio, 0)}
+              </span>
               <PDFDownloadLink
                 document={<DocuPDF poema={arr} />}
                 fileName="week.pdf"
@@ -320,7 +321,6 @@ console.log('n:', n)
               <button style={{border:'none', backgroundColor:'transparent',color:'darkred'}}>PDF</button>
               </PDFDownloadLink>
             </span>
-            {console.log(arr)}
 
             <span className={n?.length > 0 ? "mx-5" : "d-none"} >
               {mail} {' '}

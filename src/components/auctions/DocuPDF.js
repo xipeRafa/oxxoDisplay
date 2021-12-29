@@ -36,9 +36,7 @@ const DocuPDF = ({ poema }) => {
 
           <Text style={{ color: "#3388af", fontSize: "42px" }}>
                 
-            {
-                  tienda
-            }
+            {tienda}
 
           </Text>
 
