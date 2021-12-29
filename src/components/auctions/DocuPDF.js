@@ -10,21 +10,12 @@ const DocuPDF = ({ poema }) => {
       <Page
         size="A4"
         style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          alignItems: "center",
           backgroundColor: "white",
         }}
       >
         <View
           style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
             backgroundColor: "white",
-            padding: 10,
           }}>
 
 
@@ -34,10 +25,8 @@ const DocuPDF = ({ poema }) => {
 
 
 
-          <Text style={{ color: "#3388af", fontSize: "42px" }}>
-                
+          <Text style={{ color: "#000", fontSize: "12px" }}> 
             {tienda}
-
           </Text>
 
 
