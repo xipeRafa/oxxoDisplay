@@ -29,31 +29,15 @@ const DocuPDF = ({ poema }) => {
 
 
 <Text style={{ color: "#000", fontSize: "12px",borderBottom:'1px solid black',padding:'10px'}}>
-{' '}{' '} Asesor {' '}{' '}{' '}{' '}{' '} Precio {' '}{' '}{' '} {' '}tienda
+{' '}{' '} Asesor {' '}{' '}{' '} Precio {' '}{' '}{' '} tienda
           </Text>
 
-          <Text style={{ color: "#000", fontSize: "12px",borderBottom:'1px solid black',padding:'10px'}}>
-            {asesor[0]} {' '}{precio[0]} {' '}{tienda[0]}
+       {poema.map((el, i)=>(
+        <Text key={i} style={{fontSize: "10px",borderBottom:'1px solid black',padding:'8px'}}>
+            {asesor[i]} {' '}{precio[i]} {' '}{tienda[i]}
           </Text>
-          <Text style={{ color: "#000", fontSize: "12px",borderBottom:'1px solid black',padding:'10px'}}>
-            {asesor[1]} {' '}{precio[1]} {' '} {tienda[1]}
-          </Text>
-          <Text style={{ color: "#000", fontSize: "12px",borderBottom:'1px solid black',padding:'10px'}}>
-            {asesor[2]}{' '}  {precio[2]} {' '} {tienda[2]}
-          </Text>
-
-          <Text style={{ color: "#000", fontSize: "12px",borderBottom:'1px solid black',padding:'10px'}}>
-            {asesor[3]} {' '} {precio[3]}{' '} {tienda[3]}
-          </Text>
-          <Text style={{ color: "#000", fontSize: "12px",borderBottom:'1px solid black',padding:'10px'}}>
-            {asesor[4]}{' '}  {precio[4]} {' '}{tienda[4]}
-          </Text>
-          <Text style={{ color: "#000", fontSize: "12px",borderBottom:'1px solid black',padding:'10px'}}>
-            {asesor[5]} {' '} {precio[5]}{' '} {tienda[5]}
-          </Text>
-          <Text style={{ color: "#000", fontSize: "12px",borderBottom:'1px solid black',padding:'10px'}}>
-            {asesor[6]} {' '} {precio[6]} {' '}{tienda[6]}
-          </Text>
+       ))}
+          
 
           <Text style={{ color: "#000", fontSize: "12px"}}>Total:{' '} ${ t}</Text>
          

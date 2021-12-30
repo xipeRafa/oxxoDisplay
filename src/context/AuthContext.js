@@ -30,6 +30,15 @@ export const AuthProvider = ({ children }) => {
     });
   };
 
+  const precioContext = (Id, precio) => {
+
+    const db = firestoreApp.collection('oxxoLider');
+
+    return db.doc(Id).update({
+      precio:precio
+    });
+  };
+
   const noteContext = (auctionId, note) => {
 
     const db = firestoreApp.collection('oxxoLider');
@@ -68,6 +77,7 @@ export const AuthProvider = ({ children }) => {
         logout,
         bidAuction,
         noteContext,
+        precioContext,
         endAuction,
         globalMsg,
       }}

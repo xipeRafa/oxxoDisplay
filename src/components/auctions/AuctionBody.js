@@ -24,17 +24,11 @@ export const AuctionBody = () => {
   let admin = currentUser ? currentUser.email : false;
 
   let DBD;
-  if (
-    admin === "superadmin@gmail.com" ||
-    admin === "superadmin2@gmail.com" ||
-    admin === "superadmin3@gmail.com"
-  ) {
+
     DBD = DB.sort((o1, o2) =>
       o1.completed === o2.completed ? 0 : o2.completed ? -1 : 1
     );
-  } else {
-    DBD = [];
-  }
+ 
 
   /* ===================================== filter Date ==================== */
   const dateFocus = () => {
@@ -86,13 +80,10 @@ export const AuctionBody = () => {
    /*  setArrRadio([]); */
   };
 
-  const [arr2, setArr2] = useState([]);
-console.log('arr2', arr2)
+
   const [n, setN] = useState();
-console.log('n:', n)
 
   useEffect(() => {
-    setArr2(mail);
 
     let sss = arr
       .filter((el) => el !== undefined)
@@ -272,28 +263,12 @@ console.log('n:', n)
 
   /* ===================================== last 24 hours END ==================== */
 
-  let arr3 = arr;
+  let arr2
 
-  if (n) {
-    let nn = n.filter((el) => el !== false);
-    arr3 = nn;
-     /* if (arrRadio?.length > 0) {
-      arr3 = arrRadio.filter((el) => el !== false);
-    }  */
-  } else {
-    if (arr) {
-      arr3 = arr
-        .sort((o1, o2) => o1.duration - o2.duration) //last to near
-        .sort((o1, o2) =>
-          o1.completed === o2.completed ? 0 : o2.completed ? -1 : 1
-        );
-    }
-  }
-
-  let arr4 = [];
-
-  if (arr.length > 0) {
-    arr4 = arr3;
+  if (n?.length > 0) {
+    arr2 = n.filter((el) => el !== false);
+  }else{
+    arr2 = arr
   }
 
   return (
@@ -312,7 +287,8 @@ console.log('n:', n)
             <span style={{ marginLeft: "20px" }}>
               <span className="p-1">{l}</span> Viajes {today2}  {' '}
               <span className="p-1 bg-dark mx-2" > 
-              Total: ${arr?.filter((el) => el !== undefined).reduce((acc, curr) => acc + curr?.precio, 0)}
+              Total: ${arr?.filter((el) => el !== undefined)
+                            .reduce((acc, curr) => acc + curr?.precio, 0).toFixed(2)}
               </span>
               <PDFDownloadLink
                 document={<DocuPDF poema={arr.filter((el) => el !== undefined)} />}
@@ -323,10 +299,13 @@ console.log('n:', n)
             </span>
 
             <span className={n?.length > 0 ? "mx-5" : "d-none"} >
-              {mail} {' '}
+              {mail}{' '}
               <span className="bg-dark p-1 " >  
-              Total:{' '}{''}${n?.filter((el) => el !== false).reduce((acc, curr) => acc + curr?.precio, 0)}
+              Total:{' '}{''}${n?.filter((el) => el !== false)
+                                  .reduce((acc, curr) => acc + curr?.precio, 0).toFixed(2)}
+             
               </span>
+              {' '}por{' '}{arr2?.length} Viajes
             </span>
           </div>
           <div className="col-1"></div>
@@ -878,7 +857,7 @@ console.log('n:', n)
               <Filters />
             </div>
           )}
-          {arr4
+          {arr2
             .filter((el) => el !== undefined)
             .map((doc) => {
               return (
