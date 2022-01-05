@@ -1,25 +1,24 @@
 import React, { useContext, useState, useEffect } from "react";
-import { Alert } from "react-bootstrap";
 import { AuthContext } from "../../context/AuthContext";
 import { AuctionCard } from "./AuctionCard";
 import { ProgressBar } from "./ProgressBar";
-import { FilterContext } from "../../context/FilterContext";
 import DatePicker, { registerLocale } from "react-datepicker";
+import { useFirestore } from '../../hooks/useFirestore';
 import "react-datepicker/dist/react-datepicker.css";
-import Filters from "./Filters";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import DocuPDF from "./DocuPDF";
 
 import "./picker.css";
 import es from "date-fns/locale/es";
-import Select from '../filters/Select';
 
 registerLocale("es", es);
 
 export const AuctionBody = () => {
   const [auction, setAuction] = useState(null);
-  const { currentUser, globalMsg } = useContext(AuthContext);
-  const { DB } = useContext(FilterContext);
+  const { currentUser} = useContext(AuthContext);
+
+  const { docs } = useFirestore('oxxoLider');
+  let DB = docs
 
   let admin = currentUser ? currentUser.email : false;
 
@@ -275,12 +274,6 @@ export const AuctionBody = () => {
     <div className="container-fluid">
       {auction && <ProgressBar auction={auction} setAuction={setAuction} />}
 
-      <div
-        style={{ zIndex: "9999999" }}
-        className="text-center w-50 position-fixed top-10 start-50 translate-middle"
-      >
-        {globalMsg && <Alert variant="danger">{globalMsg}</Alert>}
-      </div>
       {admin && (
         <div className="row bg-secondary pb-3">
           <div className={arr.length> 0 ? "text-white bg-primary mb-3 p-2 blue" : "d-none"} >
@@ -847,16 +840,8 @@ export const AuctionBody = () => {
         </div>
       )}
 
-      
-
-
       {DB && (
         <div className="pt-3">
-          {currentUser && (
-            <div className={arr.length > 0 ? "d-none" : "d-none"}>
-              <Filters />
-            </div>
-          )}
           {arr2
             .filter((el) => el !== undefined)
             .map((doc) => {
@@ -869,17 +854,6 @@ export const AuctionBody = () => {
             })}
         </div>
       )}
-
-  {/*     <h2 className="mt-2 px-3 mx-1">Pedidos de oxxo</h2>
-
-      {arr4
-            .filter((el) => el !== undefined)
-            .map((doc) => {
-              return (    
-            <Oxxo item={doc}/> 
-            );
-          })}    */}  
-
 
     </div>
   );
