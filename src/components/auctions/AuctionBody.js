@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import { AuctionCard } from "./AuctionCard";
-import { ProgressBar } from "./ProgressBar";
 import DatePicker, { registerLocale } from "react-datepicker";
 import { useFirestore } from '../../hooks/useFirestore';
 import "react-datepicker/dist/react-datepicker.css";
@@ -14,7 +13,6 @@ import es from "date-fns/locale/es";
 registerLocale("es", es);
 
 export const AuctionBody = () => {
-  const [auction, setAuction] = useState(null);
   const { currentUser} = useContext(AuthContext);
 
   const { docs } = useFirestore('oxxoLider');
@@ -24,9 +22,7 @@ export const AuctionBody = () => {
 
   let DBD;
 
-    DBD = DB.sort((o1, o2) =>
-      o1.completed === o2.completed ? 0 : o2.completed ? -1 : 1
-    );
+    DBD = DB
  
 
   /* ===================================== filter Date ==================== */
@@ -38,7 +34,6 @@ export const AuctionBody = () => {
 
   const [fecha, setFecha] = useState();
   const [arr, setArr] = useState([]);
-
   let l = arr.filter((el) => el).length;
 
 
@@ -272,7 +267,6 @@ export const AuctionBody = () => {
 
   return (
     <div className="container-fluid">
-      {auction && <ProgressBar auction={auction} setAuction={setAuction} />}
 
       {admin && (
         <div className="row bg-secondary pb-3">
@@ -846,10 +840,7 @@ export const AuctionBody = () => {
             .filter((el) => el !== undefined)
             .map((doc) => {
               return (
-                <AuctionCard
-                  item={doc}
-                  key={doc.id}
-                />
+                <AuctionCard item={doc} key={doc.id} />
               );
             })}
         </div>
