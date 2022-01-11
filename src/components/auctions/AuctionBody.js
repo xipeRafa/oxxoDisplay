@@ -297,14 +297,14 @@ export const AuctionBody = () => {
           </div>
           <div className="col-1"></div>
           <div
-            className={n?.length > 0 ? "d-none" : "col-md-3 text-center mb-4 me-5"}
+            className={n?.length > 0 ? "d-none" : "col-md-3 text-center me-5"}
           >
             <DatePicker
               selected={fecha}
               onChange={onDate}
               /* onFocus={dateFocus} */
               locale="es"
-              className="pickers form-control mt-2 w-100 bg-secondary"
+              className="pickers form-control mt-1 w-100 bg-secondary"
               dateFormat="dd 'de' MMMM 'de' yyyy"
             />
           </div>
@@ -331,7 +331,7 @@ export const AuctionBody = () => {
           </div> */}
 
           <div className="col-md-3 text-center">
-            <select className={arr.length> 0 ? "w-100 form-control mt-2" : "d-none"} 
+            <select className={arr.length> 0 ? "w-100 form-control mt-1" : "d-none"} 
                     onChange={handleMail} >
 
                 <option>Selecciona Una Tienda Distrito 1</option>
@@ -435,7 +435,7 @@ export const AuctionBody = () => {
           </div>
 
           <div className="col-md-3 text-center">
-            <select className={arr.length> 0 ? "w-100 form-control mt-2" : "d-none"} 
+            <select className={arr.length> 0 ? "w-100 form-control mt-1" : "d-none"} 
                     onChange={handleMail} >
 
                  <option>Selecciona Una Tienda de Distrito 2</option>
