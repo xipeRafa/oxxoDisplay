@@ -11,17 +11,17 @@ export const NavComp = () => {
     <nav className="container-fluid navbar navbar-light bg-secondary">
       <div className="container-fluid">
         <div className="navbar-brand text-white">
-        <img src={logoImg} alt="logo" height="50" />   DISPLAY TC-10
+        <img src={logoImg} alt="logo" height="40" /> Pedidos
         </div>
         <div className="d-flex">
           <div className="col">
             {currentUser ? (
               <>
-                <div className="btn mx-2 disabled">
-                  {currentUser.email}
+                <div className="btn mx-2 text-white">
+                  {currentUser.email.slice(0, -10)}
                 </div>
                 <div onClick={() => logout()} className="text-white btn mx-2">
-                  Salir
+                  salir
                 </div>
               </>
             ) : (

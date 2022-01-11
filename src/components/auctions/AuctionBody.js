@@ -304,7 +304,7 @@ export const AuctionBody = () => {
               onChange={onDate}
               /* onFocus={dateFocus} */
               locale="es"
-              className="pickers mb-3 form-control mt-2 w-100 bg-secondary"
+              className="pickers form-control mt-2 w-100 bg-secondary"
               dateFormat="dd 'de' MMMM 'de' yyyy"
             />
           </div>
